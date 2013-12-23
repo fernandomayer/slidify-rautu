@@ -14,6 +14,7 @@ renderiza o resultado em um documento HTML5, possibilitando fazer slides
 dinâmicos rapidamente.
 
 O processo básico consiste em:
+
 1. Editar o conteúdo em um arquivo `Rmd` (R Markdown)
 2. Processar o contaúdo com o Slidify
 3. Publicar o resultado em HTML em algum servidor
