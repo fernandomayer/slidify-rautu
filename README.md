@@ -34,7 +34,7 @@ Além do pacote `slidify`, também é necessário instalar o
 `slidifyLibraries` que contém diversos arquivos de configuração
 utilizados pelo Slidify.
 
-```r
+```ruby
 require(devtools)
 install_github("slidify", "ramnathv")
 install_github("slidifyLibraries", "ramnathv")
@@ -58,7 +58,7 @@ Abra uma sessão do R dentro do diretório que você criou, e usa a função
 `author("<diretorio>")` do Slidify para que ele gere todos os arquivos
 necessários. Por exemplo,
 
-```r
+```ruby
 require(slidify)
 author("slidify-template")
 ```
@@ -74,14 +74,14 @@ abra em um editor que você não queira utilizar, abra este arquivo da
 forma que preferir).
 
 Edite o conteúdo no arquivo `index.Rmd`. Veja como exemplo o arquivo
-[](index.Rmd) deste repositório. 
+[index.Rmd](index.Rmd) deste repositório. 
 
 ### Processando o arquivo com Slidify
 
 Após adicionar o conteúdo desejado, é hora de processar o arquivo
 `index.Rmd` pelo Slidify no R:
 
-```r
+```ruby
 slidify("index.Rmd")
 ```
 
@@ -108,7 +108,7 @@ argumentos:
 
 Resumindo, a chamada dessa função será, neste caso,
 
-```r
+```ruby
 publish(repo = "slidify-rautu", username = "fernandomayer",
         host = "github")
 ```
@@ -135,7 +135,7 @@ no [RPubs](http://rpubs.com) - veja `?publish` para isso.
 Um *workflow* típico da utilização do Slidify consiste nos seguintes
 passos (após já ter configurado um repositório `repo` no GitHub):
 
-```r
+```ruby
 require(slidify) # para carregar o pacote
 author("diretorio") # apenas da PRIMEIRA VEZ
 ## Editar o arquivo index.Rmd
