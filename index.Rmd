@@ -100,9 +100,9 @@ Veja as opções em [http://yihui.name/knitr/options](http://yihui.name/knitr/op
 
 Figuras podem ser inseridas a partir de links ou diretórios locais
 
-Carl Friedrich Gauß
+O logo do R
 
-!['Gauss'](http://goo.gl/ZwTTXv)
+!['R logo'](http://developer.r-project.org/Logo/Rlogo-3.png)
 
 ---
 
