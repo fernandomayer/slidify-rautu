@@ -13,11 +13,9 @@ mode        : selfcontained # {standalone, draft}
 
 ### Slides disponíveis em [http://fernandomayer.github.io/slidify-rautu]()
 
-### Feito com [Slidify](http://slidify.org)
-
 ### Melhor visualizado com [Chromium](http://www.chromium.org) (ou [Google Chrome](https://www.google.com/chrome))
 
-### Código-fonte disponível no [GitHub](https://github.com/fernandomayer/slidify-rautu)
+### Para ver o código-fonte destes slides e instruções de como utilizá-lo, acesse a página no [GitHub](https://github.com/fernandomayer/slidify-rautu)
 
 ### Pressione "o" para visualizar miniaturas
 
