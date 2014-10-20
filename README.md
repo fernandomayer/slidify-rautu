@@ -35,8 +35,8 @@ Além do pacote `slidify`, também é necessário instalar o
 `slidifyLibraries` que contém diversos arquivos de configuração
 utilizados pelo Slidify.
 
-```ruby
-require(devtools)
+```r
+library(devtools)
 install_github("ramnathv/slidify")
 install_github("ramnathv/slidifyLibraries")
 ```
@@ -50,22 +50,21 @@ siga as instruções da
 [página de ajuda do GitHub](https://help.github.com/articles/create-a-repo)
 ou veja o [git-rautu](https://github.com/fernandomayer/git-rautu).
 
-Por exemplo, aqui criei um diretório chamado `slidify-rautu` e iniciei
-um repositório git nele.
+Por exemplo, aqui criei um diretório chamado `slidify-rautu`.
 
 ### Iniciando a editoração com Slidify
 
-Abra uma sessão do R dentro do diretório que você criou, e usa a função
+Abra uma sessão do R e use a função
 `author("<diretorio>")` do Slidify para que ele gere todos os arquivos
 necessários. Por exemplo,
 
-```ruby
-require(slidify)
-author("slidify-template")
+```r
+library(slidify)
+author("slidify-rautu")
 ```
-vai criar um novo diretório `slidify-template` com os arquivos
-utilizados pelo Slidify. Como você já está em um repositório do GitHub,
-ele criará automaticamente um novo *branch* chamado `gh-pages`, que é o
+vai criar um novo diretório `slidify-rautu` com os arquivos
+utilizados pelo Slidify. Ele criará automaticamente dentro deste
+diretório um *branch* chamado `gh-pages`, que é o 
 nome padrão para que o GitHub entenda que o conteúdo de um *branch* com
 esse nome deve ser interpretado como uma página da web. Além disso, este
 comando irá adicionar e *comitar* automaticamente todos estes arquivos
@@ -73,6 +72,27 @@ iniciais. Ainda, o arquivo `index.Rmd` deverá abrir em seu editor de
 texto para que você possa iniciar a edição. (Caso não abra sozinho, ou
 abra em um editor que você não queira utilizar, abra este arquivo da
 forma que preferir).
+
+Até esse momento, o **repositório** `slidify-rautu` criado no GitHub e o
+**diretório** `slidify-rautu` criado localmente no seu computador ainda
+não possuem ligação. Para usar o repositório do GitHub como servidor
+para publicação, é necessário adicionar o repositório como um servidor
+remoto (*remote*) vinculado ao seu diretório (normalmente denominado
+*origin*). Para fazer isso no git:
+
+```shell
+git remote add origin git@github.com:fernandomayer/slidify-rautu.git
+```
+
+Para finalmente enviar seus arquivos locais para o servidor do GitHub, é
+necessário dar um *push* no *branch* `gh-pages` (depois de adicionar e
+comitar os arquivos criados)
+
+```shell
+git add .
+git commit -m 'primeira versao'
+git push origin gh-pages
+```
 
 Edite o conteúdo no arquivo `index.Rmd`. Veja como exemplo o arquivo
 [index.Rmd](index.Rmd) deste repositório. 
@@ -82,7 +102,7 @@ Edite o conteúdo no arquivo `index.Rmd`. Veja como exemplo o arquivo
 Após adicionar o conteúdo desejado, é hora de processar o arquivo
 `index.Rmd` pelo Slidify no R:
 
-```ruby
+```r
 slidify("index.Rmd")
 ```
 
@@ -109,7 +129,7 @@ argumentos:
 
 Resumindo, a chamada dessa função será, neste caso,
 
-```ruby
+```r
 publish(repo = "slidify-rautu", username = "fernandomayer",
         host = "github")
 ```
@@ -137,7 +157,7 @@ Um *workflow* típico da utilização do Slidify consiste nos seguintes
 passos (após já ter configurado um repositório `repo` no GitHub):
 
 ```ruby
-require(slidify) # para carregar o pacote
+library(slidify) # para carregar o pacote
 author("diretorio") # apenas da PRIMEIRA VEZ
 ## Editar o arquivo index.Rmd
 slidify("index.Rmd")
