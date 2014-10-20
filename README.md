@@ -157,6 +157,14 @@ passos (após já ter configurado um repositório `repo` no GitHub):
 ```r
 library(slidify) # para carregar o pacote
 author("diretorio") # apenas da PRIMEIRA VEZ
+##----------------------------------------------------------------------
+## NO TERMINAL (APENAS DA PRIMEIRA VEZ)
+## Configura o repositório git
+# git remote add origin git@github.com:<username>/<repo>.git
+# git add .
+# git commit -m 'primeira versao'
+# git push origin gh-pages
+##----------------------------------------------------------------------
 ## Editar o arquivo index.Rmd
 slidify("index.Rmd")
 ## Abra o arquivo resultante, index.html no navegador para ver o
@@ -165,7 +173,7 @@ slidify("index.Rmd")
 slidify("index.Rmd")
 ## E assim sucessivamente...
 ## Quando estiver pronto pra publicação, faça
-publish(repo = "repo", username = "nomedeusuario")
+publish_github(repo = "repo", username = "username")
 ```
 
 ## Mais informações
