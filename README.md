@@ -120,18 +120,16 @@ para acompanhar o resultado final do seu trabalho.
 Note que até agora as modificações que foram feitas são apenas locais,
 ou seja, nada foi publicado para o mundo.
 
-Para publicar no GitHub utilizamos a função `publish()` com os seguintes
-argumentos:
+Para publicar no GitHub utilizamos a função `publish_github()` com os
+seguintes argumentos:
 * `repo`: o nome do repositório aonde será publicado. Por exemplo, aqui
   o repositório é o `slidify-rautu`
 * `username`: seu nome de usuário no GitHub
-* `host`: o servidor utilizado, que por padrão já é o GitHub
 
 Resumindo, a chamada dessa função será, neste caso,
 
 ```r
-publish(repo = "slidify-rautu", username = "fernandomayer",
-        host = "github")
+publish_github(repo = "slidify-rautu", username = "fernandomayer")
 ```
 
 Toda vez que essa função for chamada, os arquivos serão automaticamente
