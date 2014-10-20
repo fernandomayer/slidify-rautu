@@ -154,7 +154,7 @@ no [RPubs](http://rpubs.com) - veja `?publish` para isso.
 Um *workflow* típico da utilização do Slidify consiste nos seguintes
 passos (após já ter configurado um repositório `repo` no GitHub):
 
-```ruby
+```r
 library(slidify) # para carregar o pacote
 author("diretorio") # apenas da PRIMEIRA VEZ
 ## Editar o arquivo index.Rmd
@@ -165,8 +165,7 @@ slidify("index.Rmd")
 slidify("index.Rmd")
 ## E assim sucessivamente...
 ## Quando estiver pronto pra publicação, faça
-publish(repo = "repo", username = "nomedeusuario",
-        host = "github")
+publish(repo = "repo", username = "nomedeusuario")
 ```
 
 ## Mais informações
