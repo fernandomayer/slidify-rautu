@@ -25,7 +25,36 @@ install_github("ramnathv/slidifyLibraries")
 ## Configuração inicial
 ##======================================================================
 
-## Depois de criar um repositório no GitHub e iniciar localmente
+## Criar um repositorio no GitHub (ex: slidify-rautu) e configurar
+
+## Criar um diretório local com o "esqueleto" do slidify
 library(slidify)
+author("slidify-rautu")
 
+##----------------------------------------------------------------------
+## NO TERMINAL (APENAS DA PRIMEIRA VEZ)
+## Configura o repositório git
+# git remote add origin git@github.com:fernandomayer/slidify-rautu.git
+# git add .
+# git commit -m 'primeira versao'
+# git push origin gh-pages
+##----------------------------------------------------------------------
 
+##======================================================================
+## Processando arquivos com slidify
+##======================================================================
+
+## Abra o arquivo index.Rmd e edite o conteúdo em Rmarkdown
+## Para processar o arquivo
+slidify("index.Rmd")
+
+## Abra o arquivo resultante index.html no navegador e atualize conforme
+## as modificações forem realizadas. Sempre que houver modificações,
+## rode o comando acima
+
+##======================================================================
+## Publicando a apresentação com slidify
+##======================================================================
+
+## Para publicar no servidor do GitHub faça
+publish_github(repo = "slidify-rautu", username = "fernandomayer")
