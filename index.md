@@ -71,9 +71,9 @@ vai gerar o seguinte resultado
 ```
 
 ```
-##  [1] 103.10  83.50 119.82 119.18  70.79  94.94  83.49  91.98  97.08 102.07
+##  [1] 113.76832  93.82192 107.69820 108.79292 122.00614  89.30812 105.33242
+##  [8]  79.31986 122.29937 133.12106
 ```
-
 
 ---
 
@@ -86,8 +86,7 @@ Os gráficos gerados pelo R são automaticamente incluidos, por exemplo
 hist(x, main = "", ylab = "Frequência")
 ```
 
-![plot of chunk grafico](assets/fig/grafico.png) 
-
+![plot of chunk grafico](assets/fig/grafico-1.png) 
 
 ---
 
