@@ -5,7 +5,7 @@ author      : Fernando Mayer
 framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
 highlighter : highlight.js  # {highlight.js, prettify, highlight}
 hitheme     : solarized_light  # {tomorrow, solarized_light, ...}
-widgets     : [mathjax]     # {mathjax, quiz, bootstrap}
+widgets     : [mathjax,quiz,bootstrap]     # {mathjax, quiz, bootstrap}
 mode        : selfcontained # {standalone, draft}
 ---
 
@@ -216,6 +216,38 @@ foi escrito como
 	f(x;\mu,\sigma^2) = \frac{1}{\sigma\sqrt{2\pi}} 
 	e^{ -\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2 }
 	$$
+
+## Figuras
+
+Figuras podem ser inseridas a partir de links ou diretórios locais
+
+O logo do R
+
+!['R logo'](http://developer.r-project.org/Logo/Rlogo-3.png)
+
+---
+
+## Tabelas
+
+Tabelas podem ser escritas dessa forma
+```
+    Caracter | Permissão
+    ---------|----------
+    `r`      | Permissão de leitura (*read*)
+    `w`      | Permissão de escrita (*write*)
+    `x`      | Permissão de execução (*execute*)
+    `-`      | Permissão desabilitada
+```
+
+Para gerar o seguinte resultado
+
+Caracter | Permissão
+---------|----------
+`r`      | Permissão de leitura (*read*)
+`w`      | Permissão de escrita (*write*)
+`x`      | Permissão de execução (*execute*)
+`-`      | Permissão desabilitada
+
 
 --- .nobackground .quote
 
@@ -561,36 +593,251 @@ callbacks.shift()();
   style="width: 600; height: 500;">
 </div>
 
----
+--- .nobackground .quote
 
-## Figuras
-
-Figuras podem ser inseridas a partir de links ou diretórios locais
-
-O logo do R
-
-!['R logo'](http://developer.r-project.org/Logo/Rlogo-3.png)
+<q> O Slidify ajuda a criar, customizar
+e compartilhar documentos HTML5 dinâmicos, <font
+color="red"><b>interativos</b></font> e elegantes usando R 
+Markdown.</q>
 
 ---
 
-## Tabelas
+## Interativo
 
-Tabelas podem ser escritas dessa forma
+O Slidify usa um "widget" para adicionar interatividade aos slides
+
+No YAML:
+
+    ---
+    widgets: [bootstrap, quiz]
+	---
+
+---
+
+    --- &radio
+    
+    ## Question 1
+    
+    What is 1 + 1?
+    
+    1. 1 
+    2. _2_
+    3. 3
+    
+    *** .hint
+    
+    This is a hint
+    
+    *** .explanation
+    
+    This is an explanation
+
+	---
+
+--- &radio
+
+## Question 1
+
+What is 1 + 1?
+
+1. 1 
+2. _2_
+3. 3
+
+
+*** .hint
+
+This is a hint
+
+*** .explanation
+
+This is an explanation
+
+---
+
+## Gráficos interativos com rCharts
+
+
+```r
+library(rCharts)
+haireye = as.data.frame(HairEyeColor)
+n1 <- nPlot(Freq ~ Hair, 
+  group = 'Eye',
+  data = subset(haireye, Sex == 'Male'),
+  type = 'multiBarChart'
+)
+n1$print('chart1')
 ```
-    Caracter | Permissão
-    ---------|----------
-    `r`      | Permissão de leitura (*read*)
-    `w`      | Permissão de escrita (*write*)
-    `x`      | Permissão de execução (*execute*)
-    `-`      | Permissão desabilitada
-```
 
-Para gerar o seguinte resultado
+---
 
-Caracter | Permissão
----------|----------
-`r`      | Permissão de leitura (*read*)
-`w`      | Permissão de escrita (*write*)
-`x`      | Permissão de execução (*execute*)
-`-`      | Permissão desabilitada
+## Gráficos interativos com rCharts
+
+
+<div id = 'chart1' class = 'rChart nvd3'></div>
+<script type='text/javascript'>
+ $(document).ready(function(){
+      drawchart1()
+    });
+    function drawchart1(){  
+      var opts = {
+ "dom": "chart1",
+"width":    800,
+"height":    400,
+"x": "Hair",
+"y": "Freq",
+"group": "Eye",
+"type": "multiBarChart",
+"id": "chart1" 
+},
+        data = [
+ {
+ "Hair": "Black",
+"Eye": "Brown",
+"Sex": "Male",
+"Freq":             32 
+},
+{
+ "Hair": "Brown",
+"Eye": "Brown",
+"Sex": "Male",
+"Freq":             53 
+},
+{
+ "Hair": "Red",
+"Eye": "Brown",
+"Sex": "Male",
+"Freq":             10 
+},
+{
+ "Hair": "Blond",
+"Eye": "Brown",
+"Sex": "Male",
+"Freq":              3 
+},
+{
+ "Hair": "Black",
+"Eye": "Blue",
+"Sex": "Male",
+"Freq":             11 
+},
+{
+ "Hair": "Brown",
+"Eye": "Blue",
+"Sex": "Male",
+"Freq":             50 
+},
+{
+ "Hair": "Red",
+"Eye": "Blue",
+"Sex": "Male",
+"Freq":             10 
+},
+{
+ "Hair": "Blond",
+"Eye": "Blue",
+"Sex": "Male",
+"Freq":             30 
+},
+{
+ "Hair": "Black",
+"Eye": "Hazel",
+"Sex": "Male",
+"Freq":             10 
+},
+{
+ "Hair": "Brown",
+"Eye": "Hazel",
+"Sex": "Male",
+"Freq":             25 
+},
+{
+ "Hair": "Red",
+"Eye": "Hazel",
+"Sex": "Male",
+"Freq":              7 
+},
+{
+ "Hair": "Blond",
+"Eye": "Hazel",
+"Sex": "Male",
+"Freq":              5 
+},
+{
+ "Hair": "Black",
+"Eye": "Green",
+"Sex": "Male",
+"Freq":              3 
+},
+{
+ "Hair": "Brown",
+"Eye": "Green",
+"Sex": "Male",
+"Freq":             15 
+},
+{
+ "Hair": "Red",
+"Eye": "Green",
+"Sex": "Male",
+"Freq":              7 
+},
+{
+ "Hair": "Blond",
+"Eye": "Green",
+"Sex": "Male",
+"Freq":              8 
+} 
+]
+  
+      if(!(opts.type==="pieChart" || opts.type==="sparklinePlus" || opts.type==="bulletChart")) {
+        var data = d3.nest()
+          .key(function(d){
+            //return opts.group === undefined ? 'main' : d[opts.group]
+            //instead of main would think a better default is opts.x
+            return opts.group === undefined ? opts.y : d[opts.group];
+          })
+          .entries(data);
+      }
+      
+      if (opts.disabled != undefined){
+        data.map(function(d, i){
+          d.disabled = opts.disabled[i]
+        })
+      }
+      
+      nv.addGraph(function() {
+        var chart = nv.models[opts.type]()
+          .width(opts.width)
+          .height(opts.height)
+          
+        if (opts.type != "bulletChart"){
+          chart
+            .x(function(d) { return d[opts.x] })
+            .y(function(d) { return d[opts.y] })
+        }
+          
+         
+        
+          
+        
+
+        
+        
+        
+      
+       d3.select("#" + opts.id)
+        .append('svg')
+        .datum(data)
+        .transition().duration(500)
+        .call(chart);
+
+       nv.utils.windowResize(chart.update);
+       return chart;
+      });
+    };
+</script>
+
+---
+
+
 

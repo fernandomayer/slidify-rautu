@@ -5,7 +5,7 @@ author      : Fernando Mayer
 framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
 highlighter : highlight.js  # {highlight.js, prettify, highlight}
 hitheme     : solarized_light  # {tomorrow, solarized_light, ...}
-widgets     : [mathjax]     # {mathjax, quiz, bootstrap}
+widgets     : [mathjax,quiz,bootstrap]     # {mathjax, quiz, bootstrap}
 mode        : selfcontained # {standalone, draft}
 ---
 
@@ -213,6 +213,38 @@ foi escrito como
 	e^{ -\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2 }
 	$$
 
+## Figuras
+
+Figuras podem ser inseridas a partir de links ou diretórios locais
+
+O logo do R
+
+!['R logo'](http://developer.r-project.org/Logo/Rlogo-3.png)
+
+---
+
+## Tabelas
+
+Tabelas podem ser escritas dessa forma
+```
+    Caracter | Permissão
+    ---------|----------
+    `r`      | Permissão de leitura (*read*)
+    `w`      | Permissão de escrita (*write*)
+    `x`      | Permissão de execução (*execute*)
+    `-`      | Permissão desabilitada
+```
+
+Para gerar o seguinte resultado
+
+Caracter | Permissão
+---------|----------
+`r`      | Permissão de leitura (*read*)
+`w`      | Permissão de escrita (*write*)
+`x`      | Permissão de execução (*execute*)
+`-`      | Permissão desabilitada
+
+
 --- .nobackground .quote
 
 <q> O Slidify ajuda a criar, customizar
@@ -379,36 +411,90 @@ M1 <- gvisMotionChart(Fruits, idvar = "Fruit", timevar = "Year")
 print(M1, tag = 'chart')
 ```
 
----
+--- .nobackground .quote
 
-## Figuras
-
-Figuras podem ser inseridas a partir de links ou diretórios locais
-
-O logo do R
-
-!['R logo'](http://developer.r-project.org/Logo/Rlogo-3.png)
+<q> O Slidify ajuda a criar, customizar
+e compartilhar documentos HTML5 dinâmicos, <font
+color="red"><b>interativos</b></font> e elegantes usando R 
+Markdown.</q>
 
 ---
 
-## Tabelas
+## Interativo
 
-Tabelas podem ser escritas dessa forma
+O Slidify usa um "widget" para adicionar interatividade aos slides
+
+No YAML:
+
+    ---
+    widgets: [bootstrap, quiz]
+	---
+
+---
+
+    --- &radio
+    
+    ## Question 1
+    
+    What is 1 + 1?
+    
+    1. 1 
+    2. _2_
+    3. 3
+    
+    *** .hint
+    
+    This is a hint
+    
+    *** .explanation
+    
+    This is an explanation
+
+	---
+
+--- &radio
+
+## Question 1
+
+What is 1 + 1?
+
+1. 1 
+2. _2_
+3. 3
+
+
+*** .hint
+
+This is a hint
+
+*** .explanation
+
+This is an explanation
+
+---
+
+## Gráficos interativos com rCharts
+
+```{r ichart, results = 'hide', tidy = F, message = F}
+library(rCharts)
+haireye = as.data.frame(HairEyeColor)
+n1 <- nPlot(Freq ~ Hair, 
+  group = 'Eye',
+  data = subset(haireye, Sex == 'Male'),
+  type = 'multiBarChart'
+)
+n1$print('chart1')
 ```
-    Caracter | Permissão
-    ---------|----------
-    `r`      | Permissão de leitura (*read*)
-    `w`      | Permissão de escrita (*write*)
-    `x`      | Permissão de execução (*execute*)
-    `-`      | Permissão desabilitada
+
+---
+
+## Gráficos interativos com rCharts
+
+```{r ref.label = 'ichart', results = 'asis', echo = F}
+
 ```
 
-Para gerar o seguinte resultado
+---
 
-Caracter | Permissão
----------|----------
-`r`      | Permissão de leitura (*read*)
-`w`      | Permissão de escrita (*write*)
-`x`      | Permissão de execução (*execute*)
-`-`      | Permissão desabilitada
+
 
