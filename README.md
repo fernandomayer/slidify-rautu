@@ -156,26 +156,37 @@ navegador. Você precisa ter uma conta já cadastrada no RPubs ou preisará
 se registrar antes de conseguir publicar a apresentação.
 
 
-### Criando um repositório no GitHub
+### Publicando pelo GitHub
+
+O mecanismo *padrão* do Slidify para hospedar as apresentações é através
+do GitHub. Para isso é necessário ter uma conta nesse serviço, e antes
+de começar a usar o Slidify é interessante criar um repositório para a
+apresentação no GitHub.
+
+#### Criando um repositório no GitHub
 
 A primeira coisa a fazer é criar um repositório no GitHub. Para isso
 siga as instruções da
 [página de ajuda do GitHub](https://help.github.com/articles/create-a-repo)
 ou veja o [git-rautu](https://github.com/fernandomayer/git-rautu).
 
-Por exemplo, aqui criei um diretório chamado `slidify-rautu`.
+Por exemplo, aqui criei um diretório chamado `slidify-rautu-git`.
 
-### Publicando pelo GitHub
+#### Usando o GitHub com Slidify
 
-Ele criará automaticamente dentro deste
+Para usar o GitHub com o Slidify, é necessário voltar no início, e usar
+a funcão `author()` com o argumento padrão `use_git = TRUE`
+
+```r
+author("slidify-rautu-git", use_git = TRUE, open_rmd = FALSE)
+```
+
+Este comando criará automaticamente dentro deste
 diretório um *branch* chamado `gh-pages`, que é o 
 nome padrão para que o GitHub entenda que o conteúdo de um *branch* com
 esse nome deve ser interpretado como uma página da web. Além disso, este
 comando irá adicionar e *comitar* automaticamente todos estes arquivos
-iniciais. Ainda, o arquivo `index.Rmd` deverá abrir em seu editor de
-texto para que você possa iniciar a edição. (Caso não abra sozinho, ou
-abra em um editor que você não queira utilizar, abra este arquivo da
-forma que preferir).
+iniciais.
 
 Até esse momento, o **repositório** `slidify-rautu` criado no GitHub e o
 **diretório** `slidify-rautu` criado localmente no seu computador ainda
@@ -185,7 +196,7 @@ remoto (*remote*) vinculado ao seu diretório (normalmente denominado
 *origin*). Para fazer isso no git:
 
 ```shell
-git remote add origin git@github.com:fernandomayer/slidify-rautu.git
+git remote add origin git@github.com:fernandomayer/slidify-rautu-git.git
 ```
 
 Para finalmente enviar seus arquivos locais para o servidor do GitHub, é
@@ -198,20 +209,26 @@ git commit -m 'primeira versao'
 git push origin gh-pages
 ```
 
+Edite o conteúdo do arquivo `index.Rmd`, conforme mencionado
+anteriormente, e processe o arquivo com o Slidify
+
+```r
+slidify("index.Rmd")
+```
 
 Note que até agora as modificações que foram feitas são apenas locais,
 ou seja, nada foi publicado para o mundo.
 
-Para publicar no GitHub utilizamos a função `publish_github()` com os
+Para publicar no GitHub utilizamos a função `publish()` com os
 seguintes argumentos:
 * `repo`: o nome do repositório aonde será publicado. Por exemplo, aqui
-  o repositório é o `slidify-rautu`
+  o repositório é o `slidify-rautu-git`
 * `username`: seu nome de usuário no GitHub
 
 Resumindo, a chamada dessa função será, neste caso,
 
 ```r
-publish_github(repo = "slidify-rautu", username = "fernandomayer")
+publish(repo = "slidify-rautu-git", username = "fernandomayer", host = "github")
 ```
 
 Toda vez que essa função for chamada, os arquivos serão automaticamente
@@ -221,15 +238,12 @@ GitHub, não sendo necessária mais nenhuma ação por parte do usuário.
 O resultado estará então disponível no endereço
 `http://<username>.github.io/<repo>`. Por exemplo, neste caso, os slides
 deste repositório estão em
-[http://fernandomayer.github.io/slidify-rautu](http://fernandomayer.github.io/slidify-rautu).
+[http://fernandomayer.github.io/slidify-rautu-git](http://fernandomayer.github.io/slidify-rautu-git).
 
 Note que não é necessário usar a função `publish()` a cada modificação
 do arquivo `index.Rmd`. Você pode verificar as modificações localmente
 no seu navegador enquanto edita este arquivo, e fazer a publicação uma
 única vez apenas no final quando estiver tudo pronto.
-
-Com o Slidify também é possível publicar no [Dropbox](http://www.dropbox.com) e
-no [RPubs](http://rpubs.com) - veja `?publish` para isso.
 
 ## Resumo
 
