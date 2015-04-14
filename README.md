@@ -101,6 +101,59 @@ disponível em <http://fernandomayer.github.io/slidify-rautu>.
 
 ## Publicando a apresentação online
 
+Uma parte fundamental do conceito de produzir slides em HTML é o fato de
+poder compartilhar apenas um link para a apresentação e ela aparecer
+diretamente no navegador sem a necessidade de baixar arquivos e abri-los
+em programas externos.
+
+As apresentações geradas pelo Slidify podem ser compartilhadas por três
+mecanismos difsrentes:
+
+1. Através do [Dropbox](www.dropbox.com)
+2. Através do [RPubs](www.rpubs.com)
+3. Através do [GitHub](github.com)
+
+Em todos os casos, usaremos a função `publish()` com algumas
+modificações. Veja `?publish` para mais informações.
+
+### Publicando pelo Dropbox
+
+A apresentação gerada pelo Slidify pode ser publicada através do
+diretório `Public` do seu Dropbox. Para isso basta espscificar um nome
+de diretório que será criado dentro de `~/Dropbox/Public`. Esse nome
+pode ser o mesmo que você já está utilizando para esse projeto, ou outro
+qualquer. Aqui, por exemplo, manti o mesmo nome `slidify-rautu`.
+
+Portanto, passamos para a função `publish()` o nome do diretório e o
+argumento `host = "dropbox"`
+
+```r
+publish("slidify-rautu", host = "dropbox")
+```
+que irá criar dentro do seu Dropbox o diretório
+`~/Dropbox/Public/slidify-rautu` com os arquivos necessários para gerar
+a apresentação.
+
+Depois disso, basta entrar na sua conta no [Dropbox](www.dropbox.com) e
+copiar o link público **apenas** do arquivo `index.html`. Esse link pode
+ser compartilhado com qualquer pessoa para que a sua apresentação seja
+aberta no navegador.
+
+### Publicando pelo RPubs
+
+O [RPubs](www.rpubs.org) é um serviço gratuito mantido pelo
+[RStudio](www.rstudio.org), e serve basicamente para hospedar
+apresentações e outros documentos gerados com R markdown para
+HTML. Embora seja uma ferramenta embutida e construída especificamente
+para o RStudio é possível publicar documentos do Slidify neste serviço.
+
+```r
+publish("slidify-rautu", html_file = "index.html", host = "rpubs")
+```
+
+Com esse comando, uma página irá abrir automaticamente no seu
+navegador. Você precisa ter uma conta já cadastrada no RPubs ou preisará
+se registrar antes de conseguir publicar a apresentação.
 
 
 ### Criando um repositório no GitHub
