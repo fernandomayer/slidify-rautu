@@ -16,7 +16,7 @@ dinâmicos rapidamente.
 O processo básico consiste em:
 
 1. Editar o conteúdo em um arquivo `Rmd` (R Markdown)
-2. Processar o contaúdo com o Slidify
+2. Processar o conteúdo com o Slidify
 3. Visualizar o resultado no navegador
 4. Publicar o resultado em HTML em algum servidor (opcional, apenas se
    quiser compartilhar a apresentação)
@@ -33,7 +33,11 @@ diretamente da sua página de desenvolvimento no
 [GitHub](https://github.com/ramnathv/slidify). A maneira mais fácil é
 utilizar a função `install_github()` do pacote `devtools`. (O `devtools`
 está no CRAN, e pode ser instaldo normalmente com
-`install.packages()`). 
+`install.packages()`), por exemplo
+
+```r
+install.packages("devtools", dependencies = TRUE)
+```
 
 Além do pacote `slidify`, também é necessário instalar o
 `slidifyLibraries` que contém diversos arquivos de configuração
@@ -47,6 +51,58 @@ install_github("ramnathv/slidifyLibraries")
 
 ## Utilização
 
+### Iniciando a editoração com Slidify
+
+Abra uma sessão do R e use a função
+`author("<diretorio>")` do Slidify para que ele gere todos os arquivos
+necessários (o esqueleto da apresentação). Por exemplo,
+
+```r
+library(slidify)
+author("slidify-rautu", use_git = FALSE, open_rmd = FALSE)
+```
+vai criar um novo diretório `slidify-rautu` com os arquivos
+utilizados pelo Slidify. O argumento `use_git = FALSE` é utilizado para
+que ele não crie um repositório do git (que é o padrão), e o argumento
+`open_rmd = FALSE` é para que o arquivo `index.Rmd` criado não seja
+aberto automaticamente pelo seu editor padrão.
+
+O comando acima também irá mudar automaticamente seu diretório de
+trabalho para o diretório recém criado `slidify-rautu`. Dentro desse
+diretório está o principal (e possivelmente único) arquivo que você
+precisará editar o `index.Rmd`.
+
+Abra o arquivo `index.Rmd` e edite seu conteúdo. Veja como exemplo o
+arquivo [index.Rmd](index.Rmd) deste repositório.
+
+### Processando o arquivo com Slidify
+
+Após adicionar o conteúdo desejado, é hora de processar o arquivo
+`index.Rmd` pelo Slidify no R:
+
+```r
+slidify("index.Rmd")
+```
+
+Esta função vai gerar os arquivos `index.md` (a conversão de R Markdown
+para Markdown puro) e `index.html`. Este último arquivo está pronto para
+a visualização em um navegador. Como é um arquivo estático, você pode
+abri-lo diretamente no navegador para ver o resultado.
+
+À medida que for editando o arquivo `index.Rmd` e usando a função
+`slidify("index.Rmd")`, você pode ir atualizando a página do arquivo
+`index.html` para acompanhar o resultado final do seu trabalho.
+
+Isso é basicamente o que se precisa saber para instalar, iniciar e gerar
+uma apresentação com Slidify. Os detalhes de *como* modificar opções e
+adicionar diversos recursos podem ser conferidos, por exemplo no arquivo
+[index.Rmd](index.Rmd) deste repositório, e o resultado final está
+disponível em <http://fernandomayer.github.io>.
+
+## Publicando a apresentação online
+
+
+
 ### Criando um repositório no GitHub
 
 A primeira coisa a fazer é criar um repositório no GitHub. Para isso
@@ -56,18 +112,9 @@ ou veja o [git-rautu](https://github.com/fernandomayer/git-rautu).
 
 Por exemplo, aqui criei um diretório chamado `slidify-rautu`.
 
-### Iniciando a editoração com Slidify
+### Publicando pelo GitHub
 
-Abra uma sessão do R e use a função
-`author("<diretorio>")` do Slidify para que ele gere todos os arquivos
-necessários. Por exemplo,
-
-```r
-library(slidify)
-author("slidify-rautu")
-```
-vai criar um novo diretório `slidify-rautu` com os arquivos
-utilizados pelo Slidify. Ele criará automaticamente dentro deste
+Ele criará automaticamente dentro deste
 diretório um *branch* chamado `gh-pages`, que é o 
 nome padrão para que o GitHub entenda que o conteúdo de um *branch* com
 esse nome deve ser interpretado como uma página da web. Além disso, este
@@ -98,28 +145,6 @@ git commit -m 'primeira versao'
 git push origin gh-pages
 ```
 
-Edite o conteúdo no arquivo `index.Rmd`. Veja como exemplo o arquivo
-[index.Rmd](index.Rmd) deste repositório. 
-
-### Processando o arquivo com Slidify
-
-Após adicionar o conteúdo desejado, é hora de processar o arquivo
-`index.Rmd` pelo Slidify no R:
-
-```r
-slidify("index.Rmd")
-```
-
-Esta função vai gerar os arquivos `index.md` (a conversão de R Markdown
-para Markdown puro) e `index.html`. Este último arquivo está pronto para
-a visualização em um navegador. Como é um arquivo estático, você pode
-abri-lo diretamente no navegador para ver o resultado.
-
-À medida que for editando o arquivo `index.Rmd` e usando a função
-`slidify()`, você pode ir atualizando a página do arquivo `index.html`
-para acompanhar o resultado final do seu trabalho.
-
-### Publicando pelo GitHub
 
 Note que até agora as modificações que foram feitas são apenas locais,
 ou seja, nada foi publicado para o mundo.
