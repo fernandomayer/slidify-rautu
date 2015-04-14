@@ -248,28 +248,57 @@ no seu navegador enquanto edita este arquivo, e fazer a publicação uma
 ## Resumo
 
 Um *workflow* típico da utilização do Slidify consiste nos seguintes
-passos (após já ter configurado um repositório `repo` no GitHub):
+passos:
 
 ```r
+##======================================================================
+## Configuração
+##----------------------------------------------------------------------
 library(slidify) # para carregar o pacote
-author("diretorio") # apenas da PRIMEIRA VEZ
+## Apenas da PRIMEIRA VEZ
+# se NÃO for usar o GitHub
+author("diretorio", use_git = FALSE, open_rmd = FALSE)
+# se FOR usar o GitHub
+author("diretorio", use_git = TRUE, open_rmd = FALSE)
+##======================================================================
+
+##======================================================================
+## Edição
 ##----------------------------------------------------------------------
-## NO TERMINAL (APENAS DA PRIMEIRA VEZ)
-## Configura o repositório git
-# git remote add origin git@github.com:<username>/<repo>.git
-# git add .
-# git commit -m 'primeira versao'
-# git push origin gh-pages
-##----------------------------------------------------------------------
-## Editar o arquivo index.Rmd
+## Abrir e editar o arquivo index.Rmd
 slidify("index.Rmd")
 ## Abra o arquivo resultante, index.html no navegador para ver o
 ## resultado
 ## Edite novamente o arquivo index.Rmd
 slidify("index.Rmd")
 ## E assim sucessivamente...
-## Quando estiver pronto pra publicação, faça
-publish_github(repo = "repo", username = "username")
+##======================================================================
+
+##======================================================================
+## Publicação
+##----------------------------------------------------------------------
+## Dropbox
+publish("diretorio", host = "dropbox")
+## Compartilhe o link público do arquivo:
+## ~/Dropbox/Public/diretorio/index.html
+##----------------------------------------------------------------------
+## RPubs
+publish("slidify-rautu", html_file = "index.html", host = "rpubs")
+## Na página que irá abrir, entre com seu login ou cadastre uma conta
+## para hospedar a apresentação
+##----------------------------------------------------------------------
+## GitHub
+##......................................................................
+## NO TERMINAL (APENAS DA PRIMEIRA VEZ)
+## Configura o repositório git
+# git remote add origin git@github.com:<username>/<repo>.git
+# git add .
+# git commit -m 'primeira versao'
+# git push origin gh-pages
+##......................................................................
+publish(repo = "<repo>", username = "<username>", host = "github")
+##======================================================================
+
 ```
 
 ## Mais informações
