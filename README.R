@@ -1,11 +1,10 @@
 ##======================================================================
-## Script de instalação, configuração e uso inicial do slidify
+## Script de instalação, configuração e uso inicial do Slidify
 ##======================================================================
 
 ##======================================================================
 ## Instalação
-##======================================================================
-
+##----------------------------------------------------------------------
 ## Pacotes necessários
 packs <- c("knitr", "devtools", "httr") # httr apenas para proxies
 # instalação
@@ -20,41 +19,52 @@ library(httr) # apenas para conexões com proxy
 # set_config(use_proxy(url = "proxy.furg.br", port = 3128))
 install_github("ramnathv/slidify")
 install_github("ramnathv/slidifyLibraries")
-
-##======================================================================
-## Configuração inicial
 ##======================================================================
 
-## Criar um repositorio no GitHub (ex: slidify-rautu) e configurar
-
-## Criar um diretório local com o "esqueleto" do slidify
-library(slidify)
-author("slidify-rautu")
-
+##======================================================================
+## Configuração
 ##----------------------------------------------------------------------
+library(slidify) # para carregar o pacote
+## Apenas da PRIMEIRA VEZ
+# se NÃO for usar o GitHub
+author("diretorio", use_git = FALSE, open_rmd = FALSE)
+# se FOR usar o GitHub
+author("diretorio", use_git = TRUE, open_rmd = FALSE)
+##======================================================================
+
+##======================================================================
+## Edição
+##----------------------------------------------------------------------
+## Abrir e editar o arquivo index.Rmd
+slidify("index.Rmd")
+## Abra o arquivo resultante, index.html no navegador para ver o
+## resultado
+## Edite novamente o arquivo index.Rmd
+slidify("index.Rmd")
+## E assim sucessivamente...
+##======================================================================
+
+##======================================================================
+## Publicação
+##----------------------------------------------------------------------
+## Dropbox
+publish("diretorio", host = "dropbox")
+## Compartilhe o link público do arquivo:
+## ~/Dropbox/Public/diretorio/index.html
+##----------------------------------------------------------------------
+## RPubs
+publish("slidify-rautu", html_file = "index.html", host = "rpubs")
+## Na página que irá abrir, entre com seu login ou cadastre uma conta
+## para hospedar a apresentação
+##----------------------------------------------------------------------
+## GitHub
+##......................................................................
 ## NO TERMINAL (APENAS DA PRIMEIRA VEZ)
 ## Configura o repositório git
-# git remote add origin git@github.com:fernandomayer/slidify-rautu.git
+# git remote add origin git@github.com:<username>/<repo>.git
 # git add .
 # git commit -m 'primeira versao'
 # git push origin gh-pages
-##----------------------------------------------------------------------
-
+##......................................................................
+publish(repo = "<repo>", username = "<username>", host = "github")
 ##======================================================================
-## Processando arquivos com slidify
-##======================================================================
-
-## Abra o arquivo index.Rmd e edite o conteúdo em Rmarkdown
-## Para processar o arquivo
-slidify("index.Rmd")
-
-## Abra o arquivo resultante index.html no navegador e atualize conforme
-## as modificações forem realizadas. Sempre que houver modificações,
-## rode o comando acima
-
-##======================================================================
-## Publicando a apresentação com slidify
-##======================================================================
-
-## Para publicar no servidor do GitHub faça
-publish_github(repo = "slidify-rautu", username = "fernandomayer")
