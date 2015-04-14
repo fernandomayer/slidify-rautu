@@ -24,7 +24,7 @@ mode        : selfcontained # {standalone, draft}
 --- .nobackground .quote
 
 <q> O Slidify ajuda a criar, customizar e compartilhar documentos
-HTML5 interativos, elegantes e dinâmicos usando R Markdown.</q>
+HTML5 dinâmicos, interativos e elegantes usando R Markdown.</q>
 
 ---
 
@@ -56,7 +56,7 @@ install_github("ramnathv/slidifyLibraries")
 --- .nobackground .quote
 
 <q> O Slidify ajuda a <font color="red"><b>criar</b></font>, customizar e compartilhar documentos
-HTML5 interativos, elegantes e dinâmicos usando R Markdown.</q>
+HTML5 dinâmicos, interativos e elegantes usando R Markdown.</q>
 
 ---
 
@@ -69,7 +69,7 @@ um "esqueleto" da apresentação de slides. Essa função irá fazer por padrão
 > - gerar e copiar os arquivos necessários para o "esqueleto"
 > - se você tiver o git instalado:
     - inicializar um repositório do git
-    - mudar para o *branch* `gh-pages
+    - mudar para o *branch* `gh-pages`
     - *comitar* as alterações para o repositório
 > - abrir o arquivo `index.Rmd` para edição
 
@@ -175,9 +175,30 @@ para Markdown puro) e `index.html`.
 
 <iframe src='assets/img/split_apply_combine.svg' width=800px height=250px></iframe> 
 
+--- .nobackground .quote
+
+<q> O Slidify ajuda a criar, <font color="red"><b>customizar</b></font>
+e compartilhar documentos HTML5 dinâmicos, interativos e elegantes
+usando R Markdown.</q>
+
 ---
 
-## Equações matemáticas
+## Customização
+
+O Slidify é altamente modular e customizável.
+
+Existem várias formas de customização:
+
+1. Frameworks (tipos de slides)
+2. Layouts (CSS, ...)
+3. Widgets (MathJax, quiz, ...)
+
+Mais detalhes sobre customização podem ser encontrados em
+[http://slidify.org/customize.html]()
+
+---
+
+### Um detalhe: equações matemáticas com MathJax
 
 O Slidify usa o [MathJax](http://www.mathjax.org) para renderizar
 equações escritas em LaTeX
@@ -189,13 +210,136 @@ f(x;\mu,\sigma^2) = \frac{1}{\sigma\sqrt{2\pi}}
 e^{ -\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2 }
 $$
 
+foi escrito como
+
+	$$
+	f(x;\mu,\sigma^2) = \frac{1}{\sigma\sqrt{2\pi}} 
+	e^{ -\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2 }
+	$$
+
+--- .nobackground .quote
+
+<q> O Slidify ajuda a criar, customizar
+e <font color="red"><b>compartilhar</b></font> documentos HTML5
+dinâmicos, interativos e elegantes usando R Markdown.</q>
+
+---
+
+## Publicando a apresentação online
+
+Uma parte fundamental do conceito de produzir slides em HTML é o fato de
+poder compartilhar apenas um link para a apresentação e ela aparecer
+diretamente no navegador sem a necessidade de baixar arquivos e abri-los
+em programas externos.
+
+As apresentações geradas pelo Slidify podem ser compartilhadas por três
+mecanismos difsrentes:
+
+1. Através do [Dropbox](www.dropbox.com)
+2. Através do [RPubs](www.rpubs.com)
+3. Através do [GitHub](github.com)
+
+Em todos os casos, usaremos a função `publish()` com algumas
+modificações. Veja `?publish` para mais informações.
+
+---
+
+### Publicando pelo Dropbox
+
+A apresentação gerada pelo Slidify pode ser publicada através do
+diretório `Public` do seu Dropbox.
+
+Para isso basta especificar um nome de diretório que será criado dentro
+de `~/Dropbox/Public`. Aqui, por exemplo, manti o mesmo nome
+`slidify-rautu`.
+
+Passamos para a função `publish()` o nome do diretório e o
+argumento `host = "dropbox"`
+
+
+```r
+publish("slidify-rautu", host = "dropbox")
+```
+que irá criar dentro do seu Dropbox o diretório
+`~/Dropbox/Public/slidify-rautu` com os arquivos necessários para gerar
+a apresentação.
+
+Depois disso, basta entrar na sua conta no [Dropbox](www.dropbox.com) e
+copiar o link público **apenas** do arquivo `index.html`.
+
+---
+
+### Publicando pelo RPubs
+
+O [RPubs](www.rpubs.org) é um serviço gratuito mantido pelo
+[RStudio](www.rstudio.org), e serve basicamente para hospedar
+apresentações e outros documentos gerados com R markdown para
+HTML.
+
+Embora seja uma ferramenta embutida e construída especificamente
+para o RStudio é possível publicar documentos do Slidify neste serviço.
+
+
+```r
+publish("slidify-rautu", html_file = "index.html", host = "rpubs")
+```
+
+Com esse comando, uma página irá abrir automaticamente no seu
+navegador. Você precisa ter uma conta já cadastrada no RPubs ou preisará
+se registrar antes de conseguir publicar a apresentação.
+
+> NOTA: no RStudio esse processo é mais automático
+
+---
+
+### Publicando pelo GitHub
+
+O mecanismo *padrão* do Slidify para hospedar as apresentações é através
+do GitHub. Para isso é necessário ter uma conta nesse serviço, e antes
+de começar a usar o Slidify é interessante criar um repositório para a
+apresentação no GitHub.
+
+Siga as instruções da
+[página de ajuda do GitHub](https://help.github.com/articles/create-a-repo)
+ou veja o [git-rautu](https://github.com/fernandomayer/git-rautu).
+
+Para usar o GitHub com o Slidify, é necessário voltar no início, e usar
+a funcão `author()` com o argumento padrão `use_git = TRUE`
+
+
+```r
+author("slidify-rautu-git", use_git = TRUE, open_rmd = FALSE)
+```
+
+Para mais detalhes de como configurar o GitHub para hospedar
+apresentações do Slidify veja a
+[seção específica do README](https://github.com/fernandomayer/slidify-rautu#publicando-pelo-github)
+do [slidify-rautu](https://github.com/fernandomayer/slidify-rautu).
+
+--- .nobackground .quote
+
+<q> O Slidify ajuda a criar, customizar
+e compartilhar documentos HTML5 <font color="red"><b>dinâmicos</b></font>, interativos e elegantes usando R
+Markdown.</q>
+
 ---
 
 ## Códigos do R
 
-Códigos podem ser inseridos de maneira similar ao Knitr, mudando apenas
-a forma como os códigos são declarados. Aqui são utilizados os *fenced
-blocks* ao invés dos *chunks* para gerar os resultados no R.
+Conteúdo dinâmico implica que gráficos, tabelas e outros resultados
+podem ser gerados dinamicamente usando códigos do R, usando o pacote
+`knitr`.
+
+<img class='center' src='http://ecx.images-amazon.com/images/I/41kI1dxXGfL.jpg' height=450px width=300px/>
+
+---
+
+## Códigos do R
+
+Códigos podem ser inseridos de maneira similar ao knitr para $\LaTeX$,
+mudando apenas a forma como os códigos são declarados. Aqui são
+utilizados os *fenced blocks* ao invés dos *chunks* para gerar os
+resultados no R.
 
 Por exemplo, o bloco
 
@@ -240,6 +384,182 @@ Slidify. Por exemplo, no gráfico anterior foi utilizado
     ```
 
 Veja as opções em [http://yihui.name/knitr/options](http://yihui.name/knitr/options)
+
+---
+
+## MotionPlot com googleVis
+
+<!-- MotionChart generated in R 3.1.3 by googleVis 0.5.8 package -->
+<!-- Tue Apr 14 17:06:09 2015 -->
+
+
+<!-- jsHeader -->
+<script type="text/javascript">
+ 
+// jsData 
+function gvisDataMotionChartID13963740d2c0 () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+ "Apples",
+2008,
+"West",
+98,
+78,
+20,
+"2008-12-31" 
+],
+[
+ "Apples",
+2009,
+"West",
+111,
+79,
+32,
+"2009-12-31" 
+],
+[
+ "Apples",
+2010,
+"West",
+89,
+76,
+13,
+"2010-12-31" 
+],
+[
+ "Oranges",
+2008,
+"East",
+96,
+81,
+15,
+"2008-12-31" 
+],
+[
+ "Bananas",
+2008,
+"East",
+85,
+76,
+9,
+"2008-12-31" 
+],
+[
+ "Oranges",
+2009,
+"East",
+93,
+80,
+13,
+"2009-12-31" 
+],
+[
+ "Bananas",
+2009,
+"East",
+94,
+78,
+16,
+"2009-12-31" 
+],
+[
+ "Oranges",
+2010,
+"East",
+98,
+91,
+7,
+"2010-12-31" 
+],
+[
+ "Bananas",
+2010,
+"East",
+81,
+71,
+10,
+"2010-12-31" 
+] 
+];
+data.addColumn('string','Fruit');
+data.addColumn('number','Year');
+data.addColumn('string','Location');
+data.addColumn('number','Sales');
+data.addColumn('number','Expenses');
+data.addColumn('number','Profit');
+data.addColumn('string','Date');
+data.addRows(datajson);
+return(data);
+}
+ 
+// jsDrawChart
+function drawChartMotionChartID13963740d2c0() {
+var data = gvisDataMotionChartID13963740d2c0();
+var options = {};
+options["width"] =    600;
+options["height"] =    500;
+options["state"] = "";
+
+    var chart = new google.visualization.MotionChart(
+    document.getElementById('MotionChartID13963740d2c0')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+ 
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "motionchart";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartMotionChartID13963740d2c0);
+})();
+function displayChartMotionChartID13963740d2c0() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+ 
+// jsFooter
+</script>
+ 
+<!-- jsChart -->  
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartMotionChartID13963740d2c0"></script>
+ 
+<!-- divChart -->
+  
+<div id="MotionChartID13963740d2c0" 
+  style="width: 600; height: 500;">
+</div>
 
 ---
 

@@ -63,7 +63,7 @@
 <slide class="nobackground quote" id="slide-2" style="background:;">
   <article data-timings="">
     <p><q> O Slidify ajuda a criar, customizar e compartilhar documentos
-HTML5 interativos, elegantes e dinâmicos usando R Markdown.</q></p>
+HTML5 dinâmicos, interativos e elegantes usando R Markdown.</q></p>
 
   </article>
   <!-- Presenter Notes -->
@@ -100,7 +100,7 @@ install_github(&quot;ramnathv/slidifyLibraries&quot;)
 <slide class="nobackground quote" id="slide-4" style="background:;">
   <article data-timings="">
     <p><q> O Slidify ajuda a <font color="red"><b>criar</b></font>, customizar e compartilhar documentos
-HTML5 interativos, elegantes e dinâmicos usando R Markdown.</q></p>
+HTML5 dinâmicos, interativos e elegantes usando R Markdown.</q></p>
 
   </article>
   <!-- Presenter Notes -->
@@ -121,7 +121,7 @@ um &quot;esqueleto&quot; da apresentação de slides. Essa função irá fazer p
 
 <ul>
 <li>inicializar um repositório do git</li>
-<li>mudar para o <em>branch</em> `gh-pages</li>
+<li>mudar para o <em>branch</em> <code>gh-pages</code></li>
 <li><em>comitar</em> as alterações para o repositório</li>
 </ul></li>
 <li>abrir o arquivo <code>index.Rmd</code> para edição</li>
@@ -266,9 +266,41 @@ para ver o resultado.</li>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-13" style="background:;">
+<slide class="nobackground quote" id="slide-13" style="background:;">
+  <article data-timings="">
+    <p><q> O Slidify ajuda a criar, <font color="red"><b>customizar</b></font>
+e compartilhar documentos HTML5 dinâmicos, interativos e elegantes
+usando R Markdown.</q></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-14" style="background:;">
   <hgroup>
-    <h2>Equações matemáticas</h2>
+    <h2>Customização</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>O Slidify é altamente modular e customizável.</p>
+
+<p>Existem várias formas de customização:</p>
+
+<ol>
+<li>Frameworks (tipos de slides)</li>
+<li>Layouts (CSS, ...)</li>
+<li>Widgets (MathJax, quiz, ...)</li>
+</ol>
+
+<p>Mais detalhes sobre customização podem ser encontrados em
+<a href="">http://slidify.org/customize.html</a></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-15" style="background:;">
+  <hgroup>
+    <h3>Um detalhe: equações matemáticas com MathJax</h3>
   </hgroup>
   <article data-timings="">
     <p>O Slidify usa o <a href="http://www.mathjax.org">MathJax</a> para renderizar
@@ -281,18 +313,174 @@ f(x;\mu,\sigma^2) = \frac{1}{\sigma\sqrt{2\pi}}
 e^{ -\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2 }
 \]</p>
 
+<p>foi escrito como</p>
+
+<pre><code>$$
+f(x;\mu,\sigma^2) = \frac{1}{\sigma\sqrt{2\pi}} 
+e^{ -\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2 }
+$$
+</code></pre>
+
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-14" style="background:;">
+<slide class="nobackground quote" id="slide-16" style="background:;">
+  <article data-timings="">
+    <p><q> O Slidify ajuda a criar, customizar
+e <font color="red"><b>compartilhar</b></font> documentos HTML5
+dinâmicos, interativos e elegantes usando R Markdown.</q></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-17" style="background:;">
+  <hgroup>
+    <h2>Publicando a apresentação online</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Uma parte fundamental do conceito de produzir slides em HTML é o fato de
+poder compartilhar apenas um link para a apresentação e ela aparecer
+diretamente no navegador sem a necessidade de baixar arquivos e abri-los
+em programas externos.</p>
+
+<p>As apresentações geradas pelo Slidify podem ser compartilhadas por três
+mecanismos difsrentes:</p>
+
+<ol>
+<li>Através do <a href="www.dropbox.com">Dropbox</a></li>
+<li>Através do <a href="www.rpubs.com">RPubs</a></li>
+<li>Através do <a href="github.com">GitHub</a></li>
+</ol>
+
+<p>Em todos os casos, usaremos a função <code>publish()</code> com algumas
+modificações. Veja <code>?publish</code> para mais informações.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-18" style="background:;">
+  <hgroup>
+    <h3>Publicando pelo Dropbox</h3>
+  </hgroup>
+  <article data-timings="">
+    <p>A apresentação gerada pelo Slidify pode ser publicada através do
+diretório <code>Public</code> do seu Dropbox.</p>
+
+<p>Para isso basta especificar um nome de diretório que será criado dentro
+de <code>~/Dropbox/Public</code>. Aqui, por exemplo, manti o mesmo nome
+<code>slidify-rautu</code>.</p>
+
+<p>Passamos para a função <code>publish()</code> o nome do diretório e o
+argumento <code>host = &quot;dropbox&quot;</code></p>
+
+<pre><code class="r">publish(&quot;slidify-rautu&quot;, host = &quot;dropbox&quot;)
+</code></pre>
+
+<p>que irá criar dentro do seu Dropbox o diretório
+<code>~/Dropbox/Public/slidify-rautu</code> com os arquivos necessários para gerar
+a apresentação.</p>
+
+<p>Depois disso, basta entrar na sua conta no <a href="www.dropbox.com">Dropbox</a> e
+copiar o link público <strong>apenas</strong> do arquivo <code>index.html</code>.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-19" style="background:;">
+  <hgroup>
+    <h3>Publicando pelo RPubs</h3>
+  </hgroup>
+  <article data-timings="">
+    <p>O <a href="www.rpubs.org">RPubs</a> é um serviço gratuito mantido pelo
+<a href="www.rstudio.org">RStudio</a>, e serve basicamente para hospedar
+apresentações e outros documentos gerados com R markdown para
+HTML.</p>
+
+<p>Embora seja uma ferramenta embutida e construída especificamente
+para o RStudio é possível publicar documentos do Slidify neste serviço.</p>
+
+<pre><code class="r">publish(&quot;slidify-rautu&quot;, html_file = &quot;index.html&quot;, host = &quot;rpubs&quot;)
+</code></pre>
+
+<p>Com esse comando, uma página irá abrir automaticamente no seu
+navegador. Você precisa ter uma conta já cadastrada no RPubs ou preisará
+se registrar antes de conseguir publicar a apresentação.</p>
+
+<blockquote>
+<p>NOTA: no RStudio esse processo é mais automático</p>
+</blockquote>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-20" style="background:;">
+  <hgroup>
+    <h3>Publicando pelo GitHub</h3>
+  </hgroup>
+  <article data-timings="">
+    <p>O mecanismo <em>padrão</em> do Slidify para hospedar as apresentações é através
+do GitHub. Para isso é necessário ter uma conta nesse serviço, e antes
+de começar a usar o Slidify é interessante criar um repositório para a
+apresentação no GitHub.</p>
+
+<p>Siga as instruções da
+<a href="https://help.github.com/articles/create-a-repo">página de ajuda do GitHub</a>
+ou veja o <a href="https://github.com/fernandomayer/git-rautu">git-rautu</a>.</p>
+
+<p>Para usar o GitHub com o Slidify, é necessário voltar no início, e usar
+a funcão <code>author()</code> com o argumento padrão <code>use_git = TRUE</code></p>
+
+<pre><code class="r">author(&quot;slidify-rautu-git&quot;, use_git = TRUE, open_rmd = FALSE)
+</code></pre>
+
+<p>Para mais detalhes de como configurar o GitHub para hospedar
+apresentações do Slidify veja a
+<a href="https://github.com/fernandomayer/slidify-rautu#publicando-pelo-github">seção específica do README</a>
+do <a href="https://github.com/fernandomayer/slidify-rautu">slidify-rautu</a>.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="nobackground quote" id="slide-21" style="background:;">
+  <article data-timings="">
+    <p><q> O Slidify ajuda a criar, customizar
+e compartilhar documentos HTML5 <font color="red"><b>dinâmicos</b></font>, interativos e elegantes usando R
+Markdown.</q></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-22" style="background:;">
   <hgroup>
     <h2>Códigos do R</h2>
   </hgroup>
   <article data-timings="">
-    <p>Códigos podem ser inseridos de maneira similar ao Knitr, mudando apenas
-a forma como os códigos são declarados. Aqui são utilizados os <em>fenced
-blocks</em> ao invés dos <em>chunks</em> para gerar os resultados no R.</p>
+    <p>Conteúdo dinâmico implica que gráficos, tabelas e outros resultados
+podem ser gerados dinamicamente usando códigos do R, usando o pacote
+<code>knitr</code>.</p>
+
+<p><img class='center' src='http://ecx.images-amazon.com/images/I/41kI1dxXGfL.jpg' height=450px width=300px/></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-23" style="background:;">
+  <hgroup>
+    <h2>Códigos do R</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Códigos podem ser inseridos de maneira similar ao knitr para \(\LaTeX\),
+mudando apenas a forma como os códigos são declarados. Aqui são
+utilizados os <em>fenced blocks</em> ao invés dos <em>chunks</em> para gerar os
+resultados no R.</p>
 
 <p>Por exemplo, o bloco</p>
 
@@ -314,7 +502,7 @@ blocks</em> ao invés dos <em>chunks</em> para gerar os resultados no R.</p>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-15" style="background:;">
+<slide class="" id="slide-24" style="background:;">
   <hgroup>
     <h2>Gráficos</h2>
   </hgroup>
@@ -330,7 +518,7 @@ blocks</em> ao invés dos <em>chunks</em> para gerar os resultados no R.</p>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-16" style="background:;">
+<slide class="" id="slide-25" style="background:;">
   <hgroup>
     <h2>Slidify e Knitr</h2>
   </hgroup>
@@ -349,7 +537,192 @@ hist(x, main = &quot;&quot;, ylab = &quot;Frequência&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-17" style="background:;">
+<slide class="" id="slide-26" style="background:;">
+  <hgroup>
+    <h2>MotionPlot com googleVis</h2>
+  </hgroup>
+  <article data-timings="">
+    <!-- MotionChart generated in R 3.1.3 by googleVis 0.5.8 package -->
+
+<!-- Tue Apr 14 17:06:09 2015 -->
+
+<!-- jsHeader -->
+
+<script type="text/javascript">
+ 
+// jsData 
+function gvisDataMotionChartID13963740d2c0 () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+ "Apples",
+2008,
+"West",
+98,
+78,
+20,
+"2008-12-31" 
+],
+[
+ "Apples",
+2009,
+"West",
+111,
+79,
+32,
+"2009-12-31" 
+],
+[
+ "Apples",
+2010,
+"West",
+89,
+76,
+13,
+"2010-12-31" 
+],
+[
+ "Oranges",
+2008,
+"East",
+96,
+81,
+15,
+"2008-12-31" 
+],
+[
+ "Bananas",
+2008,
+"East",
+85,
+76,
+9,
+"2008-12-31" 
+],
+[
+ "Oranges",
+2009,
+"East",
+93,
+80,
+13,
+"2009-12-31" 
+],
+[
+ "Bananas",
+2009,
+"East",
+94,
+78,
+16,
+"2009-12-31" 
+],
+[
+ "Oranges",
+2010,
+"East",
+98,
+91,
+7,
+"2010-12-31" 
+],
+[
+ "Bananas",
+2010,
+"East",
+81,
+71,
+10,
+"2010-12-31" 
+] 
+];
+data.addColumn('string','Fruit');
+data.addColumn('number','Year');
+data.addColumn('string','Location');
+data.addColumn('number','Sales');
+data.addColumn('number','Expenses');
+data.addColumn('number','Profit');
+data.addColumn('string','Date');
+data.addRows(datajson);
+return(data);
+}
+ 
+// jsDrawChart
+function drawChartMotionChartID13963740d2c0() {
+var data = gvisDataMotionChartID13963740d2c0();
+var options = {};
+options["width"] =    600;
+options["height"] =    500;
+options["state"] = "";
+
+    var chart = new google.visualization.MotionChart(
+    document.getElementById('MotionChartID13963740d2c0')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+ 
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "motionchart";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartMotionChartID13963740d2c0);
+})();
+function displayChartMotionChartID13963740d2c0() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+ 
+// jsFooter
+</script>
+ 
+
+<!-- jsChart -->  
+
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartMotionChartID13963740d2c0"></script>
+ 
+
+<!-- divChart -->
+
+<div id="MotionChartID13963740d2c0" 
+  style="width: 600; height: 500;">
+</div>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-27" style="background:;">
   <hgroup>
     <h2>Figuras</h2>
   </hgroup>
@@ -364,7 +737,7 @@ hist(x, main = &quot;&quot;, ylab = &quot;Frequência&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-18" style="background:;">
+<slide class="" id="slide-28" style="background:;">
   <hgroup>
     <h2>Tabelas</h2>
   </hgroup>
@@ -487,38 +860,98 @@ hist(x, main = &quot;&quot;, ylab = &quot;Frequência&quot;)
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=13 title='Equações matemáticas'>
+        data-slide=13 title=''>
          13
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=14 title='Códigos do R'>
+        data-slide=14 title='Customização'>
          14
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=15 title='Gráficos'>
+        data-slide=15 title='Um detalhe: equações matemáticas com MathJax'>
          15
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=16 title='Slidify e Knitr'>
+        data-slide=16 title=''>
          16
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=17 title='Figuras'>
+        data-slide=17 title='Publicando a apresentação online'>
          17
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=18 title='Tabelas'>
+        data-slide=18 title='Publicando pelo Dropbox'>
          18
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=19 title='Publicando pelo RPubs'>
+         19
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=20 title='Publicando pelo GitHub'>
+         20
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=21 title=''>
+         21
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=22 title='Códigos do R'>
+         22
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=23 title='Códigos do R'>
+         23
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=24 title='Gráficos'>
+         24
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=25 title='Slidify e Knitr'>
+         25
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=26 title='MotionPlot com googleVis'>
+         26
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=27 title='Figuras'>
+         27
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=28 title='Tabelas'>
+         28
       </a>
     </li>
   </ul>
