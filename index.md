@@ -4,8 +4,8 @@ subtitle    : Utilização básica do Slidify
 author      : Fernando Mayer
 framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
 highlighter : highlight.js  # {highlight.js, prettify, highlight}
-hitheme     : tomorrow      # 
-widgets     : [mathjax]            # {mathjax, quiz, bootstrap}
+hitheme     : solarized_light  # {tomorrow, solarized_light, ...}
+widgets     : [mathjax]     # {mathjax, quiz, bootstrap}
 mode        : selfcontained # {standalone, draft}
 ---
 
@@ -21,6 +21,110 @@ mode        : selfcontained # {standalone, draft}
 
 ### Use as setas direita/esquerda para navegar
 
+--- .nobackground .quote
+
+<q> O Slidify ajuda a criar, customizar e compartilhar documentos
+HTML5 interativos, elegantes e dinâmicos usando R Markdown.</q>
+
+---
+
+## Instalando o Slidify
+
+O Slidify não é um pacote do CRAN, por isso precisa ser instalado
+diretamente da sua página de desenvolvimento no
+[GitHub](https://github.com/ramnathv/slidify). A maneira mais fácil é
+utilizar a função `install_github()` do pacote `devtools`. (O `devtools`
+está no CRAN, e pode ser instaldo normalmente com
+`install.packages()`), por exemplo
+
+
+```r
+install.packages("devtools", dependencies = TRUE)
+```
+
+Além do pacote `slidify`, também é necessário instalar o
+`slidifyLibraries` que contém diversos arquivos de configuração
+utilizados pelo Slidify.
+
+
+```r
+library(devtools)
+install_github("ramnathv/slidify")
+install_github("ramnathv/slidifyLibraries")
+```
+
+--- .nobackground .quote
+
+<q> O Slidify ajuda a <font color="red"><b>criar</b></font>, customizar e compartilhar documentos
+HTML5 interativos, elegantes e dinâmicos usando R Markdown.</q>
+
+---
+
+## Criando um documento com Slidify
+
+A maneira mais fácil de começar é usando a função `author("<dir>")` para criar
+um "esqueleto" da apresentação de slides. Essa função irá fazer por padrão
+
+> - criar um diretório `"<dir>"` para a apresentação
+> - gerar e copiar os arquivos necessários para o "esqueleto"
+> - se você tiver o git instalado:
+    - inicializar um repositório do git
+    - mudar para o *branch* `gh-pages
+    - *comitar* as alterações para o repositório
+> - abrir o arquivo `index.Rmd` para edição
+
+---
+
+## Criando um documento com Slidify
+
+Por exemplo,
+
+
+```r
+library(slidify)
+author("slidify-rautu", use_git = FALSE, open_rmd = FALSE)
+```
+
+vai criar um novo diretório `slidify-rautu` com os arquivos
+utilizados pelo Slidify.
+
+- O argumento `use_git = FALSE` é utilizado para
+  que ele não crie um repositório do git (que é o padrão).
+
+- O argumento `open_rmd = FALSE` é para que o arquivo `index.Rmd` criado
+  não seja aberto automaticamente pelo seu editor padrão.
+
+O comando acima também irá mudar automaticamente seu diretório de
+trabalho para o diretório recém criado `slidify-rautu`. Dentro desse
+diretório está o principal (e possivelmente único) arquivo que você
+precisará editar o `index.Rmd`.
+
+---
+
+O arquivo `index.Rmd` básico
+
+    ---
+    title       : 
+    subtitle    : 
+    author      : 
+    job         : 
+    framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+    highlighter : highlight.js  # {highlight.js, prettify, highlight}
+    hitheme     : tomorrow      # 
+    widgets     : []            # {mathjax, quiz, bootstrap}
+    mode        : selfcontained # {standalone, draft}
+    ---
+    
+    ## Read-And-Delete
+    
+    1. Edit YAML front matter
+    2. Write using R Markdown
+    3. Use an empty line followed by three dashes to separate slides!
+
+    --- .class #id 
+    
+    ## Slide 2
+
 ---
 
 ## Básico
@@ -34,6 +138,42 @@ Pular uma linha define um novo parágrafo
 Todas as marcações do
 [Markdown](http://daringfireball.net/projects/markdown/syntax) são
 válidas
+
+Marcações em HTML também são válidas
+
+---
+
+## Processando o arquivo com Slidify
+
+Após adicionar o conteúdo desejado, é hora de processar o arquivo
+`index.Rmd` pelo Slidify no R:
+
+
+```r
+slidify("index.Rmd")
+```
+
+Esta função vai gerar os arquivos `index.md` (a conversão de R Markdown
+para Markdown puro) e `index.html`.
+
+- Como é um arquivo estático, você pode abri-lo diretamente no navegador
+  para ver o resultado.
+
+À medida que for editando o arquivo `index.Rmd` e usando a função
+`slidify("index.Rmd")`, você pode ir atualizando a página do arquivo
+`index.html`
+
+--- .segue bg:indigo
+
+## Como o Slidify funciona?
+
+---
+
+<iframe src='assets/img/knit.svg' width=800px height=250px></iframe> 
+
+---
+
+<iframe src='assets/img/split_apply_combine.svg' width=800px height=250px></iframe> 
 
 ---
 
@@ -71,8 +211,8 @@ vai gerar o seguinte resultado
 ```
 
 ```
-##  [1] 113.76832  93.82192 107.69820 108.79292 122.00614  89.30812 105.33242
-##  [8]  79.31986 122.29937 133.12106
+##  [1] 104.83477 106.95095  99.55128 109.66645 109.75745 111.36069 104.23999
+##  [8] 121.64682 120.47687  97.17345
 ```
 
 ---

@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
     media="only screen and (max-device-width: 480px)" >
   <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
-  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/solarized_light.css" />
   <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
 
   
@@ -60,7 +60,139 @@
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-2" style="background:;">
+<slide class="nobackground quote" id="slide-2" style="background:;">
+  <article data-timings="">
+    <p><q> O Slidify ajuda a criar, customizar e compartilhar documentos
+HTML5 interativos, elegantes e dinâmicos usando R Markdown.</q></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Instalando o Slidify</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>O Slidify não é um pacote do CRAN, por isso precisa ser instalado
+diretamente da sua página de desenvolvimento no
+<a href="https://github.com/ramnathv/slidify">GitHub</a>. A maneira mais fácil é
+utilizar a função <code>install_github()</code> do pacote <code>devtools</code>. (O <code>devtools</code>
+está no CRAN, e pode ser instaldo normalmente com
+<code>install.packages()</code>), por exemplo</p>
+
+<pre><code class="r">install.packages(&quot;devtools&quot;, dependencies = TRUE)
+</code></pre>
+
+<p>Além do pacote <code>slidify</code>, também é necessário instalar o
+<code>slidifyLibraries</code> que contém diversos arquivos de configuração
+utilizados pelo Slidify.</p>
+
+<pre><code class="r">library(devtools)
+install_github(&quot;ramnathv/slidify&quot;)
+install_github(&quot;ramnathv/slidifyLibraries&quot;)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="nobackground quote" id="slide-4" style="background:;">
+  <article data-timings="">
+    <p><q> O Slidify ajuda a <font color="red"><b>criar</b></font>, customizar e compartilhar documentos
+HTML5 interativos, elegantes e dinâmicos usando R Markdown.</q></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
+  <hgroup>
+    <h2>Criando um documento com Slidify</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>A maneira mais fácil de começar é usando a função <code>author(&quot;&lt;dir&gt;&quot;)</code> para criar
+um &quot;esqueleto&quot; da apresentação de slides. Essa função irá fazer por padrão</p>
+
+<ul class = "build incremental">
+<li>criar um diretório <code>&quot;&lt;dir&gt;&quot;</code> para a apresentação</li>
+<li>gerar e copiar os arquivos necessários para o &quot;esqueleto&quot;</li>
+<li>se você tiver o git instalado:
+
+<ul>
+<li>inicializar um repositório do git</li>
+<li>mudar para o <em>branch</em> `gh-pages</li>
+<li><em>comitar</em> as alterações para o repositório</li>
+</ul></li>
+<li>abrir o arquivo <code>index.Rmd</code> para edição</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-6" style="background:;">
+  <hgroup>
+    <h2>Criando um documento com Slidify</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Por exemplo,</p>
+
+<pre><code class="r">library(slidify)
+author(&quot;slidify-rautu&quot;, use_git = FALSE, open_rmd = FALSE)
+</code></pre>
+
+<p>vai criar um novo diretório <code>slidify-rautu</code> com os arquivos
+utilizados pelo Slidify.</p>
+
+<ul>
+<li><p>O argumento <code>use_git = FALSE</code> é utilizado para
+que ele não crie um repositório do git (que é o padrão).</p></li>
+<li><p>O argumento <code>open_rmd = FALSE</code> é para que o arquivo <code>index.Rmd</code> criado
+não seja aberto automaticamente pelo seu editor padrão.</p></li>
+</ul>
+
+<p>O comando acima também irá mudar automaticamente seu diretório de
+trabalho para o diretório recém criado <code>slidify-rautu</code>. Dentro desse
+diretório está o principal (e possivelmente único) arquivo que você
+precisará editar o <code>index.Rmd</code>.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-7" style="background:;">
+  <article data-timings="">
+    <p>O arquivo <code>index.Rmd</code> básico</p>
+
+<pre><code>---
+title       : 
+subtitle    : 
+author      : 
+job         : 
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+---
+
+## Read-And-Delete
+
+1. Edit YAML front matter
+2. Write using R Markdown
+3. Use an empty line followed by three dashes to separate slides!
+
+--- .class #id 
+
+## Slide 2
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-8" style="background:;">
   <hgroup>
     <h2>Básico</h2>
   </hgroup>
@@ -75,11 +207,66 @@
 <a href="http://daringfireball.net/projects/markdown/syntax">Markdown</a> são
 válidas</p>
 
+<p>Marcações em HTML também são válidas</p>
+
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-3" style="background:;">
+<slide class="" id="slide-9" style="background:;">
+  <hgroup>
+    <h2>Processando o arquivo com Slidify</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Após adicionar o conteúdo desejado, é hora de processar o arquivo
+<code>index.Rmd</code> pelo Slidify no R:</p>
+
+<pre><code class="r">slidify(&quot;index.Rmd&quot;)
+</code></pre>
+
+<p>Esta função vai gerar os arquivos <code>index.md</code> (a conversão de R Markdown
+para Markdown puro) e <code>index.html</code>.</p>
+
+<ul>
+<li>Como é um arquivo estático, você pode abri-lo diretamente no navegador
+para ver o resultado.</li>
+</ul>
+
+<p>À medida que for editando o arquivo <code>index.Rmd</code> e usando a função
+<code>slidify(&quot;index.Rmd&quot;)</code>, você pode ir atualizando a página do arquivo
+<code>index.html</code></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="segue" id="slide-10" style="background:indigo;">
+  <hgroup>
+    <h2>Como o Slidify funciona?</h2>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-11" style="background:;">
+  <article data-timings="">
+    <iframe src='assets/img/knit.svg' width=800px height=250px></iframe> 
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-12" style="background:;">
+  <article data-timings="">
+    <iframe src='assets/img/split_apply_combine.svg' width=800px height=250px></iframe> 
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-13" style="background:;">
   <hgroup>
     <h2>Equações matemáticas</h2>
   </hgroup>
@@ -98,7 +285,7 @@ e^{ -\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2 }
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-4" style="background:;">
+<slide class="" id="slide-14" style="background:;">
   <hgroup>
     <h2>Códigos do R</h2>
   </hgroup>
@@ -119,15 +306,15 @@ blocks</em> ao invés dos <em>chunks</em> para gerar os resultados no R.</p>
 <pre><code class="r">(x &lt;- rnorm(10, 100, 15))
 </code></pre>
 
-<pre><code>##  [1] 113.76832  93.82192 107.69820 108.79292 122.00614  89.30812 105.33242
-##  [8]  79.31986 122.29937 133.12106
+<pre><code>##  [1] 104.83477 106.95095  99.55128 109.66645 109.75745 111.36069 104.23999
+##  [8] 121.64682 120.47687  97.17345
 </code></pre>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-5" style="background:;">
+<slide class="" id="slide-15" style="background:;">
   <hgroup>
     <h2>Gráficos</h2>
   </hgroup>
@@ -143,7 +330,7 @@ blocks</em> ao invés dos <em>chunks</em> para gerar os resultados no R.</p>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-6" style="background:;">
+<slide class="" id="slide-16" style="background:;">
   <hgroup>
     <h2>Slidify e Knitr</h2>
   </hgroup>
@@ -162,7 +349,7 @@ hist(x, main = &quot;&quot;, ylab = &quot;Frequência&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-7" style="background:;">
+<slide class="" id="slide-17" style="background:;">
   <hgroup>
     <h2>Figuras</h2>
   </hgroup>
@@ -177,7 +364,7 @@ hist(x, main = &quot;&quot;, ylab = &quot;Frequência&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-8" style="background:;">
+<slide class="" id="slide-18" style="background:;">
   <hgroup>
     <h2>Tabelas</h2>
   </hgroup>
@@ -234,44 +421,104 @@ hist(x, main = &quot;&quot;, ylab = &quot;Frequência&quot;)
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=2 title='Básico'>
+        data-slide=2 title=''>
          2
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=3 title='Equações matemáticas'>
+        data-slide=3 title='Instalando o Slidify'>
          3
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=4 title='Códigos do R'>
+        data-slide=4 title=''>
          4
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=5 title='Gráficos'>
+        data-slide=5 title='Criando um documento com Slidify'>
          5
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=6 title='Slidify e Knitr'>
+        data-slide=6 title='Criando um documento com Slidify'>
          6
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=7 title='Figuras'>
+        data-slide=7 title=''>
          7
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=8 title='Tabelas'>
+        data-slide=8 title='Básico'>
          8
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=9 title='Processando o arquivo com Slidify'>
+         9
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=10 title='Como o Slidify funciona?'>
+         10
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=11 title=''>
+         11
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=12 title=''>
+         12
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=13 title='Equações matemáticas'>
+         13
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=14 title='Códigos do R'>
+         14
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=15 title='Gráficos'>
+         15
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=16 title='Slidify e Knitr'>
+         16
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=17 title='Figuras'>
+         17
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=18 title='Tabelas'>
+         18
       </a>
     </li>
   </ul>
