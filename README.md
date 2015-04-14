@@ -4,10 +4,10 @@ Utilização básica do [Slidify](http://www.slidify.org).
 
 O Slidify é um pacote do [R](http://r-project.org), desenvolvido por
 [Ramnath Vaidyanathan](https://github.com/ramnathv). Ele possibilita
-escrever em [R Markdown](http://www.rstudio.com/ide/docs/r_markdown),
+escrever em [R Markdown](http://rmarkdown.rstudio.com),
 misturando a facilidade de escrita da linguagem
 [Markdown](http://daringfireball.net/projects/markdown) com códigos do R
-através do [Knitr](http://yihui.name/knitr/options).
+através do [Knitr](http://yihui.name/knitr).
 
 A vantagem é que o Slidify faz todo o trabalho destes dois pacotes e
 renderiza o resultado em um documento HTML5, possibilitando fazer slides
@@ -17,10 +17,14 @@ O processo básico consiste em:
 
 1. Editar o conteúdo em um arquivo `Rmd` (R Markdown)
 2. Processar o contaúdo com o Slidify
-3. Publicar o resultado em HTML em algum servidor
+3. Visualizar o resultado no navegador
+4. Publicar o resultado em HTML em algum servidor (opcional, apenas se
+   quiser compartilhar a apresentação)
 
-Aqui vamos utilizar o GitHub como servidor. Abaixo estão as instruções
-detalhadas.
+O padrão do Slidify é hospedar a apresentação no
+[GitHub](http://github.com), mas isso também pode ser feito através do
+[Dropbox](http://www.dropbox.com) ou do
+[RPubs](http://www.rpubs.com). Abaixo estão as instruções detalhadas.
 
 ## Instalação
 
