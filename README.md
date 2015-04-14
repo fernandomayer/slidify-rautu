@@ -97,7 +97,7 @@ Isso é basicamente o que se precisa saber para instalar, iniciar e gerar
 uma apresentação com Slidify. Os detalhes de *como* modificar opções e
 adicionar diversos recursos podem ser conferidos, por exemplo no arquivo
 [index.Rmd](index.Rmd) deste repositório, e o resultado final está
-disponível em <http://fernandomayer.github.io>.
+disponível em <http://fernandomayer.github.io/slidify-rautu>.
 
 ## Publicando a apresentação online
 
