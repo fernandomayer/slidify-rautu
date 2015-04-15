@@ -5,6 +5,7 @@ author      : Fernando Mayer
 framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
 highlighter : highlight.js  # {highlight.js, prettify, highlight}
 hitheme     : solarized_light  # {tomorrow, solarized_light, ...}
+license     : by-sa
 widgets     : [mathjax,quiz,bootstrap]     # {mathjax, quiz, bootstrap}
 mode        : selfcontained # {standalone, draft}
 ---
@@ -15,7 +16,9 @@ mode        : selfcontained # {standalone, draft}
 
 ### Melhor visualizado com [Chromium](http://www.chromium.org) (ou [Google Chrome](https://www.google.com/chrome))
 
-### Para ver o código-fonte destes slides e instruções de como utilizá-lo, acesse a página no [GitHub](https://github.com/fernandomayer/slidify-rautu)
+### Para ver o código-fonte destes slides e instruções de como utilizá-lo, acesse o [repositório slidify-rautu no GitHub](https://github.com/fernandomayer/slidify-rautu)
+
+### Material baseado no [tutorial do Slidify](http://slidify.github.io/workshops/tutorials/01)
 
 ### Pressione "o" para visualizar miniaturas
 
@@ -213,6 +216,8 @@ foi escrito como
 	e^{ -\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2 }
 	$$
 
+---
+
 ## Figuras
 
 Figuras podem ser inseridas a partir de links ou diretórios locais
@@ -261,11 +266,11 @@ diretamente no navegador sem a necessidade de baixar arquivos e abri-los
 em programas externos.
 
 As apresentações geradas pelo Slidify podem ser compartilhadas por três
-mecanismos difsrentes:
+mecanismos diferentes:
 
-1. Através do [Dropbox](www.dropbox.com)
-2. Através do [RPubs](www.rpubs.com)
-3. Através do [GitHub](github.com)
+1. [Dropbox](www.dropbox.com)
+2. [RPubs](www.rpubs.com)
+3. [GitHub](github.com)
 
 Em todos os casos, usaremos a função `publish()` com algumas
 modificações. Veja `?publish` para mais informações.
@@ -320,7 +325,7 @@ se registrar antes de conseguir publicar a apresentação.
 
 ### Publicando pelo GitHub
 
-O mecanismo *padrão* do Slidify para hospedar as apresentações é através
+O mecanismo **padrão** do Slidify para hospedar as apresentações é através
 do GitHub. Para isso é necessário ter uma conta nesse serviço, e antes
 de começar a usar o Slidify é interessante criar um repositório para a
 apresentação no GitHub.
@@ -400,6 +405,16 @@ Slidify. Por exemplo, no gráfico anterior foi utilizado
     ```
 
 Veja as opções em [http://yihui.name/knitr/options](http://yihui.name/knitr/options)
+
+---
+
+## MotionPlot com googleVis
+
+```{r results="asis", commment=NA, message=FALSE, echo=TRUE}
+library(googleVis)
+M1 <- gvisMotionChart(Fruits, idvar = "Fruit", timevar = "Year")
+print(M1, tag = 'chart')
+```
 
 ---
 
