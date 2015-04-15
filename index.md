@@ -6,7 +6,7 @@ framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
 highlighter : highlight.js  # {highlight.js, prettify, highlight}
 hitheme     : solarized_light  # {tomorrow, solarized_light, ...}
 license     : by-sa
-widgets     : [mathjax, quiz, bootstrap]     # {mathjax, quiz, bootstrap}
+widgets     : [mathjax, bootstrap, quiz]     # {mathjax, quiz, bootstrap}
 mode        : standalone # {standalone, draft, selfcontained}
 ---
 
