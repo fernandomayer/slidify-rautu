@@ -410,7 +410,7 @@ Veja as opções em [http://yihui.name/knitr/options](http://yihui.name/knitr/op
 
 ## MotionPlot com googleVis
 
-```{r results="asis", commment=NA, message=FALSE, echo=TRUE}
+```{r motion, results="asis", commment=NA, message=FALSE, echo=TRUE, eval=FALSE}
 library(googleVis)
 M1 <- gvisMotionChart(Fruits, idvar = "Fruit", timevar = "Year")
 print(M1, tag = 'chart')
@@ -420,10 +420,7 @@ print(M1, tag = 'chart')
 
 ## MotionPlot com googleVis
 
-```{r results = 'asis', commment = NA, message = F, echo = F}
-library(googleVis)
-M1 <- gvisMotionChart(Fruits, idvar = "Fruit", timevar = "Year")
-print(M1, tag = 'chart')
+```{r ref.label="motion", results = "asis", commment=NA, message=FALSE, echo=FALSE}
 ```
 
 --- .nobackground .quote
