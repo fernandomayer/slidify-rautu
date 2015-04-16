@@ -7,7 +7,7 @@ highlighter : highlight.js  # {highlight.js, prettify, highlight}
 hitheme     : solarized_light  # {tomorrow, solarized_light, ...}
 license     : by-sa
 widgets     : [mathjax, bootstrap, quiz]     # {mathjax, quiz, bootstrap}
-mode        : standalone # {standalone, draft, selfcontained}
+mode        : selfcontained # {standalone, draft, selfcontained}
 ---
 
 ## Instruções
@@ -650,6 +650,7 @@ No YAML:
 
 	---
 
+
 --- &radio
 
 ## Question 1
@@ -668,6 +669,7 @@ This is a hint
 *** .explanation
 
 This is an explanation
+
 
 ---
 

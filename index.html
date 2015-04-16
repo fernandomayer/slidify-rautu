@@ -8,21 +8,21 @@
   <meta name="generator" content="slidify" />
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
-  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/css/default.css" media="all" >
-  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/css/phone.css" 
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
     media="only screen and (max-device-width: 480px)" >
-  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/css/slidify.css" >
-  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/highlighters/highlight.js/css/solarized_light.css" />
-  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="http://slidifylibraries2.googlecode.com/git/inst/libraries/widgets/bootstrap/css/bootstrap.css"></link>
-<link rel=stylesheet href="http://slidifylibraries2.googlecode.com/git/inst/libraries/widgets/quiz/css/demo.css"></link>
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/solarized_light.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="libraries/widgets/bootstrap/css/bootstrap.css"></link>
+<link rel=stylesheet href="libraries/widgets/quiz/css/demo.css"></link>
 <link rel=stylesheet href="./assets/css/ribbons.css"></link>
 
   
   <!-- Grab CDN jQuery, fall back to local if offline -->
   <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
-  <script>window.jQuery || document.write('<script src="http://slidifylibraries2.googlecode.com/git/inst/libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
-  <script data-main="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/js/slides" 
-    src="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
   </script>
   
   
@@ -581,7 +581,7 @@ resultados no R.</p>
 <pre><code class="r">hist(x, main = &quot;&quot;, ylab = &quot;Frequência&quot;)
 </code></pre>
 
-<p><img src="data:image/png;base64,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" alt="plot of chunk grafico"> </p>
+<p><img src="assets/fig/grafico-1.png" alt="plot of chunk grafico"> </p>
 
   </article>
   <!-- Presenter Notes -->
@@ -1322,11 +1322,11 @@ n1$print(&#39;chart1&#39;)
   <![endif]-->
 </body>
   <!-- Load Javascripts for Widgets -->
-  <script src="http://slidifylibraries2.googlecode.com/git/inst/libraries/widgets/bootstrap/js/bootstrap.min.js"></script>
-<script src="http://slidifylibraries2.googlecode.com/git/inst/libraries/widgets/bootstrap/js/bootbox.min.js"></script>
-<script src="http://slidifylibraries2.googlecode.com/git/inst/libraries/widgets/quiz/js/jquery.quiz.js"></script>
-<script src="http://slidifylibraries2.googlecode.com/git/inst/libraries/widgets/quiz/js/mustache.min.js"></script>
-<script src="http://slidifylibraries2.googlecode.com/git/inst/libraries/widgets/quiz/js/quiz-app.js"></script>
+  <script src="libraries/widgets/bootstrap/js/bootstrap.min.js"></script>
+<script src="libraries/widgets/bootstrap/js/bootbox.min.js"></script>
+<script src="libraries/widgets/quiz/js/jquery.quiz.js"></script>
+<script src="libraries/widgets/quiz/js/mustache.min.js"></script>
+<script src="libraries/widgets/quiz/js/quiz-app.js"></script>
 
   <!-- MathJax: Fall back to local if CDN offline but local image fonts are not supported (saves >100MB) -->
   <script type="text/x-mathjax-config">
@@ -1340,7 +1340,7 @@ n1$print(&#39;chart1&#39;)
   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   <!-- <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
   </script> -->
-  <script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="http://slidifylibraries2.googlecode.com/git/inst/libraries/widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
+  <script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="libraries/widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
 </script>
 <script>  
   $(function (){ 
@@ -1350,7 +1350,7 @@ n1$print(&#39;chart1&#39;)
   </script>  
   
   <!-- LOAD HIGHLIGHTER JS FILES -->
-  <script src="http://slidifylibraries2.googlecode.com/git/inst/libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
   <!-- DONE LOADING HIGHLIGHTER JS FILES -->
    
