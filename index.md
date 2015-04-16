@@ -6,8 +6,9 @@ framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
 highlighter : highlight.js  # {highlight.js, prettify, highlight}
 hitheme     : solarized_light  # {tomorrow, solarized_light, ...}
 license     : by-sa
-widgets     : [mathjax, bootstrap, quiz]     # {mathjax, quiz, bootstrap}
+widgets     : [mathjax, quiz, bootstrap]     # {mathjax, quiz, bootstrap}
 mode        : selfcontained # {standalone, draft, selfcontained}
+knit        : slidify::knit2slides
 ---
 
 ## Instruções
@@ -106,6 +107,7 @@ precisará editar o `index.Rmd`.
 
 O arquivo `index.Rmd` básico
 
+```
     ---
     title       : 
     subtitle    : 
@@ -127,6 +129,7 @@ O arquivo `index.Rmd` básico
     --- .class #id 
     
     ## Slide 2
+```
 
 ---
 
@@ -438,14 +441,14 @@ print(M1, tag = 'chart')
 ## MotionPlot com googleVis
 
 <!-- MotionChart generated in R 3.1.3 by googleVis 0.5.8 package -->
-<!-- Wed Apr 15 16:33:57 2015 -->
+<!-- Wed Apr 15 22:45:49 2015 -->
 
 
 <!-- jsHeader -->
 <script type="text/javascript">
  
 // jsData 
-function gvisDataMotionChartID9555cec5fee () {
+function gvisDataMotionChartID16265f37cd9d () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
@@ -543,15 +546,15 @@ return(data);
 }
  
 // jsDrawChart
-function drawChartMotionChartID9555cec5fee() {
-var data = gvisDataMotionChartID9555cec5fee();
+function drawChartMotionChartID16265f37cd9d() {
+var data = gvisDataMotionChartID16265f37cd9d();
 var options = {};
 options["width"] =    600;
 options["height"] =    500;
 options["state"] = "";
 
     var chart = new google.visualization.MotionChart(
-    document.getElementById('MotionChartID9555cec5fee')
+    document.getElementById('MotionChartID16265f37cd9d')
     );
     chart.draw(data,options);
     
@@ -575,9 +578,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartMotionChartID9555cec5fee);
+callbacks.push(drawChartMotionChartID16265f37cd9d);
 })();
-function displayChartMotionChartID9555cec5fee() {
+function displayChartMotionChartID16265f37cd9d() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -601,11 +604,11 @@ callbacks.shift()();
 </script>
  
 <!-- jsChart -->  
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartMotionChartID9555cec5fee"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartMotionChartID16265f37cd9d"></script>
  
 <!-- divChart -->
   
-<div id="MotionChartID9555cec5fee" 
+<div id="MotionChartID16265f37cd9d" 
   style="width: 600; height: 500;">
 </div>
 
@@ -629,6 +632,7 @@ No YAML:
 	---
 
 --- 
+
 
     --- &radio
     
@@ -661,7 +665,6 @@ What is 1 + 1?
 2. _2_
 3. 3
 
-
 *** .hint
 
 This is a hint
@@ -669,7 +672,6 @@ This is a hint
 *** .explanation
 
 This is an explanation
-
 
 ---
 
@@ -856,7 +858,3 @@ n1$print('chart1')
 </script>
 
 ---
-
-
-
-

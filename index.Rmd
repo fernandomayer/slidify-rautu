@@ -6,8 +6,9 @@ framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
 highlighter : highlight.js  # {highlight.js, prettify, highlight}
 hitheme     : solarized_light  # {tomorrow, solarized_light, ...}
 license     : by-sa
-widgets     : [mathjax, bootstrap, quiz]     # {mathjax, quiz, bootstrap}
+widgets     : [mathjax, quiz, bootstrap]     # {mathjax, quiz, bootstrap}
 mode        : selfcontained # {standalone, draft, selfcontained}
+knit        : slidify::knit2slides
 ---
 
 ## Instruções
@@ -103,6 +104,7 @@ precisará editar o `index.Rmd`.
 
 O arquivo `index.Rmd` básico
 
+```
     ---
     title       : 
     subtitle    : 
@@ -124,6 +126,7 @@ O arquivo `index.Rmd` básico
     --- .class #id 
     
     ## Slide 2
+```
 
 ---
 
@@ -420,7 +423,10 @@ print(M1, tag = 'chart')
 
 ## MotionPlot com googleVis
 
-```{r ref.label="motion", results = "asis", commment=NA, message=FALSE, echo=FALSE}
+```{r results = "asis", commment=NA, message=FALSE, echo=FALSE, eval=TRUE}
+library(googleVis)
+M1 <- gvisMotionChart(Fruits, idvar = "Fruit", timevar = "Year")
+print(M1, tag = 'chart')
 ```
 
 --- .nobackground .quote
@@ -443,6 +449,7 @@ No YAML:
 	---
 
 --- 
+
 
     --- &radio
     
@@ -475,7 +482,6 @@ What is 1 + 1?
 2. _2_
 3. 3
 
-
 *** .hint
 
 This is a hint
@@ -484,12 +490,11 @@ This is a hint
 
 This is an explanation
 
-
 ---
 
 ## Gráficos interativos com rCharts
 
-```{r ichart, results = 'hide', tidy = F, message = F}
+```{r ichart, results="hide", tidy=FALSE, message=FALSE}
 library(rCharts)
 haireye = as.data.frame(HairEyeColor)
 n1 <- nPlot(Freq ~ Hair, 
@@ -504,12 +509,15 @@ n1$print('chart1')
 
 ## Gráficos interativos com rCharts
 
-```{r ref.label = 'ichart', results = 'asis', echo = F}
-
+```{r results="asis", echo=FALSE, message=FALSE}
+library(rCharts)
+haireye = as.data.frame(HairEyeColor)
+n1 <- nPlot(Freq ~ Hair, 
+  group = 'Eye',
+  data = subset(haireye, Sex == 'Male'),
+  type = 'multiBarChart'
+)
+n1$print('chart1')
 ```
 
 ---
-
-
-
-
