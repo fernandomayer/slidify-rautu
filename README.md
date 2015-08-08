@@ -313,6 +313,12 @@ gráficos dinâmicos com o [rCharts](http://rcharts.io)! Veja mais sobre
 adicionar interatividade no link
 [http://slidify.github.io/dcmeetup/demos/interactive](http://slidify.github.io/dcmeetup/demos/interactive) 
 
+*****
+
+Repositório original: https://github.com/fernandomayer/slidify-rautu
+
+Repositório espelho: http://git.leg.ufpr.br/fernandomayer/slidify-rautu
+
 
 ## Licença
 
